@@ -24,8 +24,8 @@
     },
     components: {
       maxFooter: Footer,
-      maxLoginBox: LoginBox
-    }
-  }
+      maxLoginBox: LoginBox,
+    },
+  };
 </script>
 

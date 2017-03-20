@@ -1,22 +1,16 @@
-import store from './store';
 import { Observable } from 'rxjs/Rx';
+import store from './store';
 // import { filter } from 'lodash';
 
 console.log(store);
 
 export const commitFeedUrls = store.actionCreator((urls) => {
   console.log('in commitFeedUrls', typeof urls);
-  let payloadUrls = [];
+  const payloadUrls = [];
 
   fetch(urls)
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      return data.map((img) => {
-        return fetch(img);
-      });
-    })
+    .then(response => response.json())
+    .then(data => data.map(img => fetch(img)))
     .then((promiseArr) => {
       promiseArr.forEach((img) => {
         img.then((res) => {
@@ -64,7 +58,7 @@ export const commitFeedUrls = store.actionCreator((urls) => {
       //     });
       //   }
       // )
-    /*payload: Observable.ajax(urls)
+    /* payload: Observable.ajax(urls)
       .map((xhr) => {
         console.log('response', xhr.response);
         return xhr.response.filter(url => {
@@ -77,15 +71,14 @@ export const commitFeedUrls = store.actionCreator((urls) => {
             });
         });
       })*/
-
 });
 
-export const commitUsernameAndPassword = store.actionCreator((payload) => ({
+export const commitUsernameAndPassword = store.actionCreator(payload => ({
   type: 'SET_USER_PASSWORD',
   payload,
 }));
 
-export const commitFeedUrls2 = store.actionCreator((payload) => ({
+export const commitFeedUrls2 = store.actionCreator(payload => ({
   type: 'SET_FEED_URLS',
   payload,
 }));

@@ -20,33 +20,26 @@
 </template>
 <script>
 
-  //import store from '../overvue/store';
+  // import store from '../overvue/store';
 
   export default {
     data() {
       return {
-        username:this.$store.state.username,
-      }
+        username: this.$store.state.username,
+      };
     },
     computed: {
-      username: function() {
+      username() {
         return this.$store.state.username;
       },
-      userImg: function() {
-        if(this.username) {
+      userImg() {
+        if (this.username) {
           return './client/src/assets/img/' + this.$store.state.username + '.jpg';
-        } else {
-          return './client/src/assets/img/profile.png';
         }
+        return './client/src/assets/img/profile.png';
       },
-    }
-
-
-
-
-
-
-  }
+    },
+};
 
 </script>
 <style lang="">

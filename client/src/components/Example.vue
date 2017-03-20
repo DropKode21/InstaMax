@@ -5,6 +5,7 @@
 
 <script>
   import { mapActions } from 'vuex';
+
   export default {
     methods: {
       ...mapActions({
@@ -12,8 +13,9 @@
         // i.e.
         // asyncDecrement,
         // asyncIncrement,
-      })
-    }
-  }
+      }),
+    },
+  };
+
 </script>
 

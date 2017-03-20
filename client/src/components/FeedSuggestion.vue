@@ -23,7 +23,7 @@
 </template>
 <script>
 
-  //import store from './../overvue/store';
+  // import store from './../overvue/store';
 
   export default {
     data() {
@@ -32,25 +32,24 @@
           return user !== this.$store.state.username;
         }),
         userFullName: this.$store.state.users,
-      }
+      };
     },
     methods: {
-      profilePic: function(user) {
+      profilePic(user) {
         return './client/src/assets/img/' + user + '.jpg';
       },
-      toggleFollow: function(e) {
-        let btn = $('#' + e.srcElement.id);
+      toggleFollow(e) {
+        const btn = $('#' + e.srcElement.id);
         if (btn.text() === 'Follow') {
           btn.text('Followed');
-        }
-        else {
+        } else {
           btn.text('Follow');
         }
         btn.toggleClass('followButton');
         btn.toggleClass('followedButton');
-      }
-    }
-  }
+      },
+    },
+  };
 
 </script>
 <style>

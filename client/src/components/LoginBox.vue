@@ -42,42 +42,42 @@
 
 <script>
 
-  //import store from '../overvue/store';
-  //import mutate from '../overvue/mutate';
+  // import store from '../overvue/store';
+  // import mutate from '../overvue/mutate';
   import { commitUsernameAndPassword } from '../overvue/actions';
 
   export default {
     data() {
       return {
-       loopMobileImg: this.mobileImageCreator()
-      }
+        loopMobileImg: this.mobileImageCreator(),
+      };
     },
     methods: {
       startMobileImgLoop() {
         console.log('in startMobileImgLoop');
         // loop through images on mobile splash
-        const mIntervId = setInterval(this.loopMobileImg, 5000).bind(this);
+        const mIntervId = setInterval(this.loopMobileImg, 5000);
       },
-      mobileImageCreator () {
+      mobileImageCreator() {
         // Use closure to track image index through multiple calls
         let index = 1;
         console.log('in mobileImageCreator index:', index);
         return function () {
           index = index < 5 ? index + 1 : 1;
           const img = './client/src/assets/img/mScreen' + index + '.png';
-          $("#mobilePics").css('background-image' , 'url(' + img + ')');
-        }
+          $("#mobilePics").css('background-image', 'url(' + img + ')');
+        };
       },
-      slideWarningUp: function() {
+      slideWarningUp() {
         $('#loginText').slideUp();
       },
-      validateUser: function(event) {
+      validateUser(event) {
         event.preventDefault();
-        let username = $('#user').val();
-        let password = $('#password').val();
+        const username = $('#user').val();
+        const password = $('#password').val();
         if (this.$store.state.users.hasOwnProperty(username) && this.$store.state.users[username].password === password) {
           commitUsernameAndPassword({ username, password });
-          $('#loginForm').submit();
+          // $('#loginForm').submit();
         } else {
           $('#loginText')[0].innerHTML = 'Something went wrong, try again';
           $('#loginText').slideDown();
@@ -85,12 +85,17 @@
       },
     },
     computed: {
+      // validateLogIn() {
+      //   console.log('check', this.$store.state);
+      //   return this.$store.state.username.length;
+      // },
     },
     mounted() {
       console.log('In mounted');
       this.startMobileImgLoop();
-    }
-  }
+    },
+  };
+  
 </script>
 
 <style>
