@@ -8,6 +8,7 @@
           <max-Feed-Box :url='feedItem' />
         </div>
       </main>
+      <max-Auto-Search></max-Auto-Search>
       <max-Footer></max-Footer>
     </div>
   </div>
@@ -19,6 +20,7 @@
   import FeedSuggestion from './components/FeedSuggestion.vue';
   import Footer from './components/Footer.vue';
   import Nav from './components/Nav.vue';
+  import AutoSearch from './components/AutoSearch.vue';
   // import store          from './overvue/store';
   import { commitFeedUrls } from './overvue/actions';
   // import { mapActions } from 'vuex';
@@ -42,9 +44,10 @@
       maxFeedSuggestion: FeedSuggestion,
       maxFooter: Footer,
       maxNav: Nav,
+      maxAutoSearch: AutoSearch,
     },
-    beforeCreate() {
-      commitFeedUrls('https://codesmith-precourse.firebaseio.com/instagram/-JqL35o8u6t3dTQaFXSV.json');
+    // beforeCreate() {
+    //   commitFeedUrls('https://codesmith-precourse.firebaseio.com/instagram/-JqL35o8u6t3dTQaFXSV.json');
       /* $.get('https://codesmith-precourse.firebaseio.com/instagram/-JqL35o8u6t3dTQaFXSV.json',
         function (data, status) {
           if (status === 'success') {
@@ -53,7 +56,7 @@
             $('#feedBox').append("<div class='feedItem borderedBox'>Cannot load feed</div>");
           }
         }.bind(this));*/
-    },
+    // },
   };
 </script>
 

@@ -9,6 +9,7 @@ export default store = new Store({
     username: '',
     password: '',
     feedUrls: null,
+    search: '',
     users: {
       frodo: { fullName: 'Frodo Baggins', password: 'baggins' },
       samwise: { fullName: 'Samwise Gamgee', password: 'gamgee' },
